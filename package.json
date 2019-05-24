@@ -1,0 +1,17 @@
+{
+  "name": "bricks",
+  "main": "bricks.js",
+  "scripts": {
+    "docz:dev": "docz dev",
+    "docz:build": "docz build"
+  },
+  "devDependencies": {
+    "docz": "latest",
+    "docz-theme-default": "latest"
+  },
+  "dependencies": {
+    "@emotion/core": "^10.0.10",
+    "@emotion/styled": "^10.0.11",
+    "styled-system": "^4.2.2"
+  }
+}
