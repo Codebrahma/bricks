@@ -15,6 +15,7 @@ const fonts = {
   bold: 'TiemposBold',
   italic: 'TiemposItalic'
 }
+
 const lineHeights = [
   0.5 * baseLineHeight + 'rem',
   1 * baseLineHeight + 'rem', 
