@@ -1,16 +1,18 @@
-import styled from '@emotion/styled'
-import { maxWidth, space } from 'styled-system';
-import css from '@styled-system/css'
+import { jsx } from '../utils/'
+import { Box } from './index'
 
 
-export const Container = styled('div')(
-  css({
-    mx: 'auto',
-    maxWidth: 1120,
-    px: 1,
-  }),
-    maxWidth, space
-)
-
-
+export const Container = props => {
+  return jsx(Box, {
+      ...props,
+      css: {
+        width: '100%',
+        minWidth: 0,
+        maxWidth: 1024,
+        mx: 'auto',
+        variant: 'styles.Container',
+      }
+    })
+}
 Container.displayName = 'Container';
+

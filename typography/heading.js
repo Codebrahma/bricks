@@ -1,16 +1,12 @@
 import styled from '@emotion/styled'
 import css from '@styled-system/css'
 import { typography } from '../utils'
-import { fontFamily, space } from 'styled-system'
+let x = (tag)=>(props) => {
+  return css(props.theme.styles[tag]);
+}
 export const H1 = styled('h1')(
-    css({
-      fontFamily: 'heading',
-      fontSize: [5, 'desktop.5' ],
-      lineHeight: 3,
-      marginTop: [3,4], 
-      marginBottom: 1,
-    })
-    ,typography
+    x('h1'),
+    typography
 );
 
 export const H2 = styled('h2')(
@@ -21,7 +17,7 @@ export const H2 = styled('h2')(
     marginTop: [3,4],
     marginBottom: 1,
   })
-  , typography, fontFamily, space
+  , typography
 )
 export const H3 = styled('h3')(
   css({

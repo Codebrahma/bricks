@@ -13,8 +13,8 @@ const hidable = style({
   prop: 'display',
 });
 export const Box = styled.div`
-  ${color} ${space} ${hidable}
-  ${alignSelf} ${width}
+  ${width} ${color} ${space} ${hidable}
+  ${alignSelf} 
 `
 
 export const Flex = styled(Box)`
