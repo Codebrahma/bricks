@@ -5,12 +5,12 @@ import { style, color, maxWidth, width } from 'styled-system'
 import { typography } from '../utils'
 
 const horizontalRuleHeight = style({
-  prop: 'height',
+  prop: 'borderWidth',
   cssProperty: 'borderTopWidth',
 });
 
 const horizontalRuleColor = style({
-  prop: 'color',
+  prop: 'borderColor',
   cssProperty: 'borderTopColor',
   key: 'colors',
 });
@@ -43,7 +43,8 @@ export const HorizontalRule = styled('div')(
   css({
     borderTopStyle: 'solid',
     display: 'block',
-    height: '1px',
+    borderWidth: '2px',
+    borderColor: 'black.0',
   })
   ,width
   ,horizontalRuleColor
