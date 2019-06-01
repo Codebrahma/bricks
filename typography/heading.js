@@ -1,51 +1,9 @@
 import styled from '@emotion/styled'
-import css from '@styled-system/css'
 import { typography } from '../utils'
-let x = (tag)=>(props) => {
-  return css(props.theme.styles[tag]);
-}
-export const H1 = styled('h1')(
-    x('h1'),
-    typography
-);
+import { Styled as themeui } from 'theme-ui'
 
-export const H2 = styled('h2')(
-  css({
-    fontFamily: 'heading',
-    fontSize: [4, 'desktop.4'],
-    lineHeight: 2,
-    marginTop: [3,4],
-    marginBottom: 1,
-  })
-  , typography
-)
-export const H3 = styled('h3')(
-  css({
-    fontFamily: 'heading',
-    fontSize: [3, 'desktop.3'],
-    lineHeight: 1,
-    marginTop: [ 2,3 ],
-    marginBottom: 1,
-  }),
-  typography
-)
-export const H4 = styled('h4')(
-  css({
-    fontFamily: 'heading',
-    fontSize: [2, 'desktop.2'],
-    lineHeight: 1,
-    marginTop: 2,
-    marginBottom: 1,
-  }),
-  typography
-)
-export const H5 = styled('h5')(
-  css({
-    fontFamily: 'heading',
-    fontSize: [1, 'desktop.1'],
-    lineHeight: 1,
-    marginTop: 2,
-    marginBottom: 1,
-  }),
-  typography
-)
+export const H1 = styled(themeui.h1)(typography);
+export const H2 = styled(themeui.h2)(typography);
+export const H3 = styled(themeui.h3)(typography);
+export const H4 = styled(themeui.h4)(typography);
+export const H5 = styled(themeui.h5)(typography);

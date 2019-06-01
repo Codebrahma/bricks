@@ -1,4 +1,4 @@
-import { compose, fontFamily , fontSize, 
+import { style, compose, fontFamily , fontSize, 
   fontWeight, lineHeight, space} from 'styled-system'
 import { jsx as emotion } from '@emotion/core'
 import css from '@styled-system/css'
@@ -16,3 +16,8 @@ export const jsx = (type, props, ...children) =>
     }) : null,
     ...children
   )
+
+
+export const hidable = style({
+  prop: 'display',
+});
