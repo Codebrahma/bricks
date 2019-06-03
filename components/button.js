@@ -1,6 +1,8 @@
 import styled from '@emotion/styled'
 import css from '@styled-system/css'
 import {  space, color, border, fontFamily, fontSize, borderColor } from 'styled-system'
+import PropTypes from 'prop-types';
+
 
 export const InputButton = styled('input')(
   css({
@@ -17,7 +19,6 @@ export const InputButton = styled('input')(
   border, borderColor
 )
 InputButton.defaultProps = {type: 'submit'}
-
-/*
-border='2px solid' padding='5px' 
-                    borderColor='black.1' bg='tint' color='black.1' placeholder='Email address' */
+InputButton.propTypes = {
+  type: PropTypes.string
+}

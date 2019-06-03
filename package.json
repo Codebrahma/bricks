@@ -6,15 +6,17 @@
     "docz:build": "docz build"
   },
   "devDependencies": {
-    "docz": "latest",
-    "docz-theme-default": "latest"
+    "docz": "^1.2.0",
+    "docz-theme-default": "^1.2.0"
   },
   "dependencies": {
     "@emotion/core": "^10.0.10",
     "@emotion/styled": "^10.0.11",
     "@styled-system/css": "^2.0.4",
+    "@styled-system/prop-types": "^5.0.4",
     "emotion-theming": "^10.0.10",
-    "styled-system": "^5.0.3",
+    "prop-types": "^15.7.2",
+    "styled-system": "^5.0.4",
     "theme-ui": "0.0.17"
   }
 }
