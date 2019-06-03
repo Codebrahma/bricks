@@ -1,23 +1,12 @@
-import { style, compose, fontFamily , fontSize, 
-  fontWeight, lineHeight, space} from 'styled-system'
-import { jsx as emotion } from '@emotion/core'
-import css from '@styled-system/css'
+import { style } from 'styled-system'
 
-export const typography = compose(fontFamily, fontSize, fontWeight, 
-                                  lineHeight, space);
+export const horizontalRuleHeight = style({
+  prop: 'borderWidth',
+  cssProperty: 'borderTopWidth',
+});
 
-
-export const jsx = (type, props, ...children) =>
-  emotion(
-    type,
-    props ? ({
-      ...props,
-      css: props.css ? css(props.css) : undefined
-    }) : null,
-    ...children
-  )
-
-
-export const hidable = style({
-  prop: 'display',
+export const horizontalRuleColor = style({
+  prop: 'borderColor',
+  cssProperty: 'borderTopColor',
+  key: 'colors',
 });

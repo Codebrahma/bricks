@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { typography } from '../utils'
+import { typography } from 'styled-system'
 import { Styled as themeui } from 'theme-ui'
 
 export const H1 = styled(themeui.h1)(typography);

@@ -4,10 +4,10 @@ import {
   Flex,
   Container,
 } from 'theme-ui'
-import { hidable } from '../utils'
+import { display } from 'styled-system'
 
 const b = styled(Box)(
-  hidable
+  display
 )
 Flex.column = styled(Flex)`
   flex-direction: column;
