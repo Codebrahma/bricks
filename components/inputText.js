@@ -1,6 +1,7 @@
 import styled from '@emotion/styled'
 import css from '@styled-system/css'
-import {  space, color, border, fontFamily, fontSize, borderColor } from 'styled-system'
+import { space, color, typography, border, borderColor } from 'styled-system'
+import propTypes from '@styled-system/prop-types'
 
 export const InputText = styled('input')(
   css({
@@ -13,7 +14,14 @@ export const InputText = styled('input')(
     bg: 'tint',
     p: '5px',
   }),
-  color, space, fontFamily, fontSize,
+  space, color, typography,
   border, borderColor
 )
 InputText.defaultProps = {type: 'text'}
+InputText.propTypes = {
+  ...propTypes.border,
+  ...propTypes.borderColor,
+  ...propTypes.color,
+  ...propTypes.typography,
+  space: [] //else too many props come in
+}

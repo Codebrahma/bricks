@@ -1,9 +1,10 @@
 import React from 'react'
 export const Props = ({of}) => {
   let props = of.propTypes;
+  console.log(props)
   return (
     <ul>
-        {Object.keys(props).map(element => <li key={element}>{element}</li>)
+        {props && Object.keys(props).map(element => <li key={element}>{element}</li>)
         }
     </ul>
   )
