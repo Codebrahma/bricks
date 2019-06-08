@@ -29,5 +29,4 @@ InputButton.propTypes = {
   ...propTypes.borderColor,
   ...propTypes.color,
   ...propTypes.typography,
-  space: [] //else too many props come in
 }
