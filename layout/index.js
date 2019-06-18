@@ -4,10 +4,12 @@ import {
   Flex,
   Container,
 } from 'theme-ui'
-import { display } from 'styled-system'
+import { display, typography, border } from 'styled-system'
 
 const b = styled(Box)(
-  display
+  display,
+  typography,
+  border
 )
 Flex.column = styled(Flex)`
   flex-direction: column;

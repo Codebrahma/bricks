@@ -19,6 +19,6 @@
     "emotion-theming": "^10.0.10",
     "prop-types": "^15.7.2",
     "styled-system": "^5.0.5",
-    "theme-ui": "0.0.17"
+    "theme-ui": "0.1.5"
   }
 }
