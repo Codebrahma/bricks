@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 import css from '@styled-system/css'
 import { Styled as themeui } from 'theme-ui'
-import { typography, style, color, maxWidth, width } from 'styled-system'
+import { typography, color, maxWidth, width } from 'styled-system'
 import { horizontalRuleColor, horizontalRuleHeight } from '../utils'
 
 
