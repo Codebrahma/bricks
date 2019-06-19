@@ -15,5 +15,12 @@ Flex.column = styled(Flex)`
   flex-direction: column;
 `;
 
+const f = styled(Flex)(
+  display,
+  typography,
+  border
+)
+
 export {b as Box}
-export {Flex, Container}
+export {f as Flex}
+export {Container}
