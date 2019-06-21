@@ -1,6 +1,7 @@
 {
   "name": "bricks",
   "main": "bricks.js",
+  "version": "0.0.1",
   "scripts": {
     "docz:dev": "docz dev",
     "docz:build": "docz build"
