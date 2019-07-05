@@ -4,22 +4,26 @@ import {
   Flex,
   Container,
 } from 'theme-ui'
-import { display, typography, border } from 'styled-system'
+import { compose, display, typography, border } from 'styled-system'
 
-const b = styled(Box)(
+const insideBox = compose (
   display,
   typography,
   border
 )
+const f = styled(Flex)(
+  insideBox
+)
+
+const b = styled(Box)(
+  insideBox
+)
+
 Flex.column = styled(Flex)`
   flex-direction: column;
 `;
 
-const f = styled(Flex)(
-  display,
-  typography,
-  border
-)
+
 
 export {b as Box}
 export {f as Flex}
