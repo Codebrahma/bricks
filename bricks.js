@@ -6,5 +6,5 @@ export { P, B, I, HorizontalRule, Text,
          H1, H2, H3, H4, H5 
                               }  from './typography/index'
 
-export { InputButton, InputText, EmptyButton } from './components'
+export { InputButton, InputText, EmptyButton, Nav } from './components'
 export { CloseIcon, HamburgerIcon, ReactIcon } from './icons'
