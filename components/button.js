@@ -30,3 +30,9 @@ InputButton.propTypes = {
   ...propTypes.color,
   ...propTypes.typography,
 }
+
+
+export const EmptyButton = styled.button`
+  background: none;
+  border: none;
+`

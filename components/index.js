@@ -1,2 +1,2 @@
-export { InputButton } from './button'
+export { InputButton, EmptyButton } from './button'
 export { InputText } from './inputText'

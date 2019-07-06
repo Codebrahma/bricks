@@ -4,7 +4,7 @@ name: Input
 
 import { Playground } from 'docz'
 import { Props } from './utils'
-import { InputText, InputButton, ThemeProvider } from '../bricks'
+import { InputText, InputButton, EmptyButton, ThemeProvider } from '../bricks'
 
 ## InputText
 <Playground>
@@ -22,3 +22,11 @@ import { InputText, InputButton, ThemeProvider } from '../bricks'
 
 ### Props
 <Props of={InputButton}/>
+
+### EmptyButton
+This is an Empty Button, used for having icon buttons etc
+<Playground>
+  <EmptyButton onClick={ ()=> alert('clicked') }>
+    Click me
+  </EmptyButton>
+</Playground>
