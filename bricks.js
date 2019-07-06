@@ -7,3 +7,4 @@ export { P, B, I, HorizontalRule, Text,
                               }  from './typography/index'
 
 export { InputButton, InputText, EmptyButton } from './components'
+export { CloseIcon, HamburgerIcon, ReactIcon } from './icons'
