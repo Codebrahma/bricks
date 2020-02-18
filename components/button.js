@@ -21,7 +21,7 @@ export const OutlinedButton = styled.button(
     borderColor: "black.1",
     color: "black.1",
     bg: "tint",
-    p: "5px 40px"
+    p: "12px 40px"
   }),
   color,
   space,
@@ -51,7 +51,7 @@ export const InputButton = styled("input")(
     borderColor: "black.1",
     color: "tint",
     bg: "black.1",
-    p: "5px"
+    p: "12px 40px"
   }),
   color,
   space,
