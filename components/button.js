@@ -32,7 +32,7 @@ export const OutlinedButton = styled.button(
   layout
 );
 
-InputButton.propTypes = {
+OutlinedButton.propTypes = {
   ...propTypes.border,
   ...propTypes.borderColor,
   ...propTypes.color,
