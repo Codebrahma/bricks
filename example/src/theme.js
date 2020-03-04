@@ -38,4 +38,10 @@ export default {
     '320px','425px', '768px', '1024px',
   ],
   space: [0, 2, 4, 8, 16, 32, 64, 128],
+  radii: [0, 2, 4, 8, 10,50],
+  styles: {
+    td: {
+      padding: 5
+    }
+  }
 };

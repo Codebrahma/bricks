@@ -13,6 +13,12 @@ import {
   Absolute,
   Relative,
   Tooltip,
+  Table,
+  Tbody,
+  Thead,
+  Td,
+  Th,
+  Tr,
 } from 'cb-design-system'
 import theme from './theme';
 
@@ -45,8 +51,6 @@ export default () => (
     </Truncate>
   
     <Input type='text' placeholder='type here...'  />
-    <br/>
-    <Input type='text' placeholder='type here........'  />
   
     <Hide md><h1>asdasdsd</h1></Hide>
     
@@ -65,5 +69,37 @@ export default () => (
     <Tooltip message="haiiii" bg="primary" color="warning">
       <BoxWithBeforeAndAfter>HelloHelloHelloHelloHelloHelloHelloHello</BoxWithBeforeAndAfter>
     </Tooltip>
+
+    <Table bg='primary' br='4'>
+      <Thead>
+        <Tr>
+          <Th>Column 1</Th>
+          <Th>Column 2</Th>
+          <Th>Column 3</Th>
+        </Tr>
+      </Thead>
+      <Tbody>
+        <Tr>
+          <Td>1</Td>
+          <Td>2</Td>
+          <Td>3</Td>
+        </Tr>
+        <Tr>
+          <Td>1</Td>
+          <Td>2</Td>
+          <Td>3</Td>
+        </Tr>
+        <Tr>
+          <Td>1</Td>
+          <Td>2</Td>
+          <Td>3</Td>
+        </Tr>
+        <Tr>
+          <Td>1</Td>
+          <Td>2</Td>
+          <Td>3</Td>
+        </Tr>
+      </Tbody>
+    </Table>
   </ThemeProvider>
 )
