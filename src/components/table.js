@@ -1,16 +1,6 @@
 import styled from '@emotion/styled';
 import { Styled as themeUi, css } from 'theme-ui';
 
-const applyPadding = (p, pt, pb, px, py, pr, pl) => ({
-  padding: p,
-  paddingBottom: pb,
-  paddingTop: pt,
-  paddingX: px,
-  paddingY: py,
-  paddingRight: pr,
-  paddingLeft: pl,
-});
-
 const Table = styled(themeUi.table)(
   ({
     theme,
@@ -18,37 +8,17 @@ const Table = styled(themeUi.table)(
     bg,
     stripped,
     bordered,
-    p,
-    pt,
-    pb,
-    px,
-    py,
-    pr,
-    pl,
-    br,
     alignment,
   }) =>
     css({
       borderCollapse: 'collapse',
       color,
       bg,
-      padding: p,
-      borderRadius: br,
       textAlign: alignment || 'left',
-      ...applyPadding(p, pt, pb, px, py, pr, pl),
       'tr td,th': {
-        padding: '10px',
+        padding: 3,
         border: bordered ? '1px solid #ddd' : '',
         borderBottom: !bordered ? '1px solid #ddd' : '',
-      },
-      'tbody tr:last-child td': {
-        border: bordered || 'none',
-      },
-      'thead tr:first-of-type th:first-of-type': {
-        borderTopLeftRadius: br,
-      },
-      'thead tr:first-of-type th:last-child': {
-        borderTopRightRadius: br,
       },
       'tbody tr:nth-child(odd)': stripped && {
         background: '#ddd',
@@ -57,13 +27,10 @@ const Table = styled(themeUi.table)(
 );
 
 const Thead = styled('thead')(
-  ({ theme, color, bg, p, pt, pb, px, py, pr, pl }) =>
+  ({ theme, color, bg }) =>
     css({
       color,
       bg,
-      'tr th': {
-        ...applyPadding(p, pt, pb, px, py, pr, pl),
-      },
     })(theme)
 );
 
@@ -93,7 +60,6 @@ const Td = styled(themeUi.td)(
     css({
       color,
       bg,
-      ...applyPadding(p, pt, pb, px, py, pr, pl),
     })(theme)
 );
 

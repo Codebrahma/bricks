@@ -70,8 +70,8 @@ export default () => (
       <BoxWithBeforeAndAfter>HelloHelloHelloHelloHelloHelloHelloHello</BoxWithBeforeAndAfter>
     </Tooltip>
 
-    <Table bg='primary' br='4'>
-      <Thead>
+    <Table stripped br='4'>
+      <Thead bg='#000' color='#fff'>
         <Tr>
           <Th>Column 1</Th>
           <Th>Column 2</Th>
