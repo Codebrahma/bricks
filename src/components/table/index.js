@@ -1,1 +1,2 @@
-export { Table, Head, HeaderRow, HeaderCell, Body, Row, Cell } from './component';
+export { Table, Head, HeaderRow, HeaderCell, Body, Row, Cell, ScrollableTable } from './component';
+export ScrollableTable from './scrollable';

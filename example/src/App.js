@@ -13,7 +13,7 @@ import {
   Absolute,
   Relative,
   Tooltip,
-  Table, Head, HeaderRow, HeaderCell, Body, Row, Cell,
+  ScrollableTable, Head, HeaderRow, HeaderCell, Body, Row, Cell,
 } from 'cb-design-system'
 import theme from './theme';
 
@@ -30,6 +30,25 @@ const BoxWithBeforeAndAfter = withBeforeAfter(Box, {
   height: 10,
   backgroundColor: 'primary',
 });
+
+
+const tabledata = [
+  {val: [1,2,3]},
+  {val: [1,2,3]},
+  {val: [1,2,3]},
+  {val: [1,2,3]},
+  {val: [1,2,3]},
+  {val: [1,2,3]},
+  {val: [1,2,3]},
+  {val: [1,2,3]},
+  {val: [1,2,3]},
+  {val: [1,2,3]},
+  {val: [1,2,3]},
+  {val: [1,2,3]},
+  {val: [1,2,3]},
+  {val: [1,2,3]},
+  {val: [1,2,3]},
+]
 
 export default () => (
   <ThemeProvider theme={theme}>
@@ -64,9 +83,10 @@ export default () => (
     <Tooltip message="haiiii" bg="primary" color="warning">
       <BoxWithBeforeAndAfter>HelloHelloHelloHelloHelloHelloHelloHello</BoxWithBeforeAndAfter>
     </Tooltip>
+
     <Box style={{width: '80%', margin: 'auto'}}>
-      <Table hoverable>
-        <Head >
+      <ScrollableTable hoverable>
+        <Head bg='primary'>
           <HeaderRow>
             <HeaderCell>Column 1</HeaderCell>
             <HeaderCell>Column 2</HeaderCell>
@@ -79,23 +99,15 @@ export default () => (
             <Cell>2</Cell>
             <Cell>3</Cell>
           </Row>
-          <Row>
-            <Cell>1</Cell>
-            <Cell>2</Cell>
-            <Cell>3</Cell>
-          </Row>
-          <Row>
-            <Cell>1</Cell>
-            <Cell>2</Cell>
-            <Cell>3</Cell>
-          </Row>
-          <Row>
-            <Cell>1</Cell>
-            <Cell>2</Cell>
-            <Cell>3</Cell>
-          </Row>
+          {tabledata.map((value, i) => (
+            <Row key={value.val[1]+i}>
+              <Cell>{value.val[0]}</Cell>
+              <Cell>{value.val[1]}</Cell>
+              <Cell>{value.val[2]}</Cell>
+            </Row>
+          ))}
         </Body>
-      </Table>
+      </ScrollableTable>
     </Box>
   </ThemeProvider>
 )
