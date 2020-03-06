@@ -75,7 +75,7 @@ export default () => (
         </Head>
         <Body>
           <Row>
-            <Cell>1</Cell>
+            <Cell isTruncated>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos libero omnis quisquam neque. Velit molestias alias voluptate laborum illo ipsum, eaque ullam nihil vitae, maxime error nisi? Nostrum, eos possimus.</Cell>
             <Cell>2</Cell>
             <Cell>3</Cell>
           </Row>

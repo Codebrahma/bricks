@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { Styled as themeUi, css } from 'theme-ui';
 
-const getThemeStylesObj = (theme, styleObj, obj) => theme['styles'][styleObj][obj];
+import { getThemeStylesObj, withTruncatedProp } from './util';
 
 const Table = styled(themeUi.table)(
   ({
@@ -55,12 +55,7 @@ const HeaderRow = styled(themeUi.tr)(({ theme, color, bg }) =>
   })(theme)
 );
 
-const HeaderCell = styled(themeUi.th)(({ theme, color, bg }) =>
-  css({
-    color,
-    bg,
-  })(theme)
-);
+const HeaderCell = withTruncatedProp(themeUi.th);
 
 const Row = styled(themeUi.tr)(({ theme, color, bg }) =>
   css({
@@ -69,12 +64,6 @@ const Row = styled(themeUi.tr)(({ theme, color, bg }) =>
   })(theme)
 );
 
-const Cell = styled(themeUi.td)(
-  ({ theme, color, bg }) =>
-    css({
-      color,
-      bg,
-    })(theme)
-);
+const Cell = withTruncatedProp(themeUi.td);
 
 export { Table, Head, HeaderRow, HeaderCell, Body, Row, Cell };
