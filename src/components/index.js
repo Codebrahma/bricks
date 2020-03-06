@@ -13,3 +13,4 @@ export Hide from './hide';
 export withBeforeAfter from './withBeforeAfter';
 export Tooltip from './tooltip';
 export { Table, Head, HeaderRow, HeaderCell, Body, Row, Cell, ScrollableTable } from './table';
+export { Modal, openModal, closeModal, PortableModalContainer } from './modal';
