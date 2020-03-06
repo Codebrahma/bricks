@@ -102,7 +102,7 @@ export default () => (
           {tabledata.map((value, i) => (
             <Row key={value.val[1]+i}>
               <Cell>{value.val[0]}</Cell>
-              <Cell>{value.val[1]}</Cell>
+              <Cell >{value.val[1]}</Cell>
               <Cell>{value.val[2]}</Cell>
             </Row>
           ))}
