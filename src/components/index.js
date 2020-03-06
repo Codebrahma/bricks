@@ -12,4 +12,4 @@ export ReadMore from './readMore';
 export Hide from './hide';
 export withBeforeAfter from './withBeforeAfter';
 export Tooltip from './tooltip';
-export { Table, Thead, Tbody, Tr, Td, Th } from './table';
+export { Table, Head, HeaderRow, HeaderCell, Body, Row, Cell } from './table';

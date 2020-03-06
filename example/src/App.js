@@ -13,12 +13,7 @@ import {
   Absolute,
   Relative,
   Tooltip,
-  Table,
-  Tbody,
-  Thead,
-  Td,
-  Th,
-  Tr,
+  Table, Head, HeaderRow, HeaderCell, Body, Row, Cell,
 } from 'cb-design-system'
 import theme from './theme';
 
@@ -69,37 +64,38 @@ export default () => (
     <Tooltip message="haiiii" bg="primary" color="warning">
       <BoxWithBeforeAndAfter>HelloHelloHelloHelloHelloHelloHelloHello</BoxWithBeforeAndAfter>
     </Tooltip>
-
-    <Table stripped br='4'>
-      <Thead bg='#000' color='#fff'>
-        <Tr>
-          <Th>Column 1</Th>
-          <Th>Column 2</Th>
-          <Th>Column 3</Th>
-        </Tr>
-      </Thead>
-      <Tbody>
-        <Tr>
-          <Td>1</Td>
-          <Td>2</Td>
-          <Td>3</Td>
-        </Tr>
-        <Tr>
-          <Td>1</Td>
-          <Td>2</Td>
-          <Td>3</Td>
-        </Tr>
-        <Tr>
-          <Td>1</Td>
-          <Td>2</Td>
-          <Td>3</Td>
-        </Tr>
-        <Tr>
-          <Td>1</Td>
-          <Td>2</Td>
-          <Td>3</Td>
-        </Tr>
-      </Tbody>
-    </Table>
+    <Box style={{width: '80%', margin: 'auto'}}>
+      <Table hoverable>
+        <Head >
+          <HeaderRow>
+            <HeaderCell>Column 1</HeaderCell>
+            <HeaderCell>Column 2</HeaderCell>
+            <HeaderCell>Column 3</HeaderCell>
+          </HeaderRow>
+        </Head>
+        <Body>
+          <Row>
+            <Cell>1</Cell>
+            <Cell>2</Cell>
+            <Cell>3</Cell>
+          </Row>
+          <Row>
+            <Cell>1</Cell>
+            <Cell>2</Cell>
+            <Cell>3</Cell>
+          </Row>
+          <Row>
+            <Cell>1</Cell>
+            <Cell>2</Cell>
+            <Cell>3</Cell>
+          </Row>
+          <Row>
+            <Cell>1</Cell>
+            <Cell>2</Cell>
+            <Cell>3</Cell>
+          </Row>
+        </Body>
+      </Table>
+    </Box>
   </ThemeProvider>
 )

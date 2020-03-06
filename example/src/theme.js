@@ -42,6 +42,18 @@ export default {
   styles: {
     td: {
       padding: 5
+    },
+    table: {
+      // bg:'primary',
+      // stripColor: 'red',
+      // hoverColor: '#f1f1f1',
+      // border: '1px solid red',
+    },
+    td: {
+      p: 3,
+    },
+    th: {
+      p:3,
     }
   }
 };
