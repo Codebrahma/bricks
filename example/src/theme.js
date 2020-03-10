@@ -55,5 +55,31 @@ export default {
     th: {
       p:3,
     }
+  },
+  toast: {
+    primary: {
+      bg: 'primary',
+      color: 'white',
+    },
+    secondary: {
+      bg: 'secondary',
+      color: 'white',
+    },
+    error: {
+      bg: 'error',
+      color: 'white',
+    },
+    warn: {
+      bg: 'warn',
+      color: 'white',
+    },
+    info: {
+      bg: 'info',
+      color: 'white',
+    },
+    success: {
+      bg: 'success',
+      color: 'white',
+    },
   }
 };
