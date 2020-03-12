@@ -19,7 +19,8 @@ import {
   PortableModalContainer,
   Toast,
   openToast,
-  PortableToastContainer
+  PortableToastContainer,
+  Tabs,
 } from "cb-design-system";
 
 import theme from "./theme";
@@ -138,5 +139,14 @@ export default () => (
       Open success Toast
     </Button>
     <Toast open={true} body="Hello" />
+
+    <Box css={{width: '50%', margin: 'auto'}}>
+      <Tabs selected='1'>
+        <Tabs.tab label='tab1'>This is tab test1</Tabs.tab>
+        <Tabs.tab label='tab2'>You can render anything you want here</Tabs.tab>
+        <Tabs.tab label='tab3'>This is tab test3</Tabs.tab>
+      </Tabs>
+    </Box>
+
   </ThemeProvider>
 );
