@@ -7,22 +7,23 @@ import { getThemeStyles } from './../utils/getStyles';
 
 const ENTER_KEY = 13;
 
-const defaultStyle = (color) => ({
+const defaultStyle = color => ({
   color,
   borderBottom: '2px solid',
   borderColor: color,
 });
 
+const getTheme = (theme, variant, key) =>
+  getThemeStyles(theme, 'tabs', variant)[key];
+
 const Tab = styled(InlineBlock)`
   cursor: pointer;
-  ${({ theme, selected }) =>
+  ${({ theme, selected, variant }) =>
     css({
       marginRight: '10px',
       padding: 2,
-      ...getThemeStyles(theme, 'tabs', 'tab'),
-      ...(selected
-        ? defaultStyle('primaryDark')
-        : {}),
+      ...getTheme(theme, variant, 'tab'),
+      ...(selected ? defaultStyle('primaryDark') : {}),
       '&:hover': {
         ...defaultStyle('primary'),
       },
@@ -37,15 +38,15 @@ const TabContainer = styled(Box)`
   border-bottom: 1px solid #888;
 `;
 
-const Content = styled(Box)(
-  ({theme}) => css({
-    ...getThemeStyles(theme, 'tabs', 'content'),
-  })(theme)
-);
+const Content = styled(Box)`
+  ${({ theme, variant }) =>
+    css({
+      ...getTheme(theme, variant, 'content'),
+    })(theme)}
+`;
 
-const Tabs = ({ children, selected, ...otherProps }) => {
+const Tabs = ({ children, selected, variant, ...otherProps }) => {
   const [tabSelected, setTabSelected] = useState(parseInt(selected));
-
   const labels = children.map(({ props: { label } }) => label);
 
   return (
@@ -53,17 +54,20 @@ const Tabs = ({ children, selected, ...otherProps }) => {
       <TabContainer>
         {labels.map((label, i) => (
           <Tab
+            variant={variant}
             selected={i + 1 === tabSelected}
             onClick={() => setTabSelected(i + 1)}
             key={label}
             tabIndex='0'
-            onKeyDown={e => e.keyCode === ENTER_KEY ? setTabSelected(i + 1) : null}
+            onKeyDown={e =>
+              e.keyCode === ENTER_KEY ? setTabSelected(i + 1) : null
+            }
           >
             {label}
           </Tab>
         ))}
       </TabContainer>
-      <Content>
+      <Content variant={variant}>
         {children.map((child, i) =>
           i + 1 === tabSelected ? child.props.children : null
         )}
@@ -75,17 +79,13 @@ const Tabs = ({ children, selected, ...otherProps }) => {
 Tabs.tab = Tab;
 
 Tabs.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.node,
-    PropTypes.string,
-  ]).isRequired,
-  selected: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.string,
-  ]),
+  children: PropTypes.oneOfType([PropTypes.node, PropTypes.string]).isRequired,
+  selected: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  variant: PropTypes.string,
 };
 Tabs.defaultProps = {
   selected: 1,
+  variant: 'primary',
 };
 
 export default Tabs;

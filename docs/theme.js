@@ -108,15 +108,17 @@ export default {
     },
   },
   tabs: {
-    tab: {
-      color: 'primaryLight',
-      p: 3,
-    },
-    content: {
-      p: 3,
-      mt: 2,
-      bg: 'border',
-      color: 'text',
+    primary: {
+      tab: {
+        color: 'primaryLight',
+        p: 3,
+      },
+      content: {
+        p: 3,
+        mt: 2,
+        bg: 'border',
+        color: 'text',
+      },
     },
   },
 
