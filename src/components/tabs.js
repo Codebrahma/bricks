@@ -43,21 +43,21 @@ const Content = styled(Box)(
   })(theme)
 );
 
-const Tabs = ({ children, selected }) => {
-  const [index, setIndex] = useState(parseInt(selected));
+const Tabs = ({ children, selected, ...otherProps }) => {
+  const [tabSelected, setTabSelected] = useState(parseInt(selected));
 
   const labels = children.map(({ props: { label } }) => label);
 
   return (
-    <Box>
+    <Box {...otherProps}>
       <TabContainer>
         {labels.map((label, i) => (
           <Tab
-            selected={i + 1 === index}
-            onClick={() => setIndex(i + 1)}
+            selected={i + 1 === tabSelected}
+            onClick={() => setTabSelected(i + 1)}
             key={label}
             tabIndex='0'
-            onKeyDown={e => e.keyCode === ENTER_KEY ? setIndex(i + 1) : null}
+            onKeyDown={e => e.keyCode === ENTER_KEY ? setTabSelected(i + 1) : null}
           >
             {label}
           </Tab>
@@ -65,7 +65,7 @@ const Tabs = ({ children, selected }) => {
       </TabContainer>
       <Content>
         {children.map((child, i) =>
-          i + 1 === index ? child.props.children : null
+          i + 1 === tabSelected ? child.props.children : null
         )}
       </Content>
     </Box>
