@@ -10,7 +10,7 @@ const defaultStyle = (color) => ({
   borderColor: color,
 });
 
-const isEnterKeyCode = (e) => e.keyCode === 13;
+const ENTER_KEY = 13;
 
 const themeStyles = (theme, themeKey = 'tabs', value) =>
   value ? get(theme, themeKey)[value] : get(theme, themeKey);
@@ -59,7 +59,7 @@ const Tabs = ({ children, selected }) => {
             onClick={() => setIndex(i + 1)}
             key={label}
             tabIndex='0'
-            onKeyDown={e => isEnterKeyCode(e) ? setIndex(i + 1) : null}
+            onKeyDown={e => e.keyCode === ENTER_KEY ? setIndex(i + 1) : null}
           >
             {label}
           </Tab>
