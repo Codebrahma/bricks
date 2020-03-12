@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
-import { Box, get, css } from 'theme-ui';
+import { Box, css } from 'theme-ui';
 import { InlineBlock } from './index';
+import { getThemeStyles } from './../utils/getStyles';
+
+const ENTER_KEY = 13;
 
 const defaultStyle = (color) => ({
   color,
@@ -10,18 +13,13 @@ const defaultStyle = (color) => ({
   borderColor: color,
 });
 
-const ENTER_KEY = 13;
-
-const themeStyles = (theme, themeKey = 'tabs', value) =>
-  value ? get(theme, themeKey)[value] : get(theme, themeKey);
-
 const Tab = styled(InlineBlock)`
-  margin-right: 10px;
   cursor: pointer;
   ${({ theme, selected }) =>
     css({
+      marginRight: '10px',
       padding: 2,
-      ...themeStyles(theme, 'tabs', 'tab'),
+      ...getThemeStyles(theme, 'tabs', 'tab'),
       ...(selected
         ? defaultStyle('primaryDark')
         : {}),
@@ -41,7 +39,7 @@ const TabContainer = styled(Box)`
 
 const Content = styled(Box)(
   ({theme}) => css({
-    ...themeStyles(theme, 'tabs', 'content'),
+    ...getThemeStyles(theme, 'tabs', 'content'),
   })(theme)
 );
 
