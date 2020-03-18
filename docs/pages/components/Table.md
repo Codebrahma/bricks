@@ -4,12 +4,12 @@ Simple table component
 
 ```.jsx
   <Table hoverable>
-    <Head bg='primary'>
-      <HeaderRow>
+    <Head bg='borderGray'>
+      <Row>
         <HeaderCell>Column 1</HeaderCell>
         <HeaderCell>Column 2</HeaderCell>
         <HeaderCell>Column 3</HeaderCell>
-      </HeaderRow>
+      </Row>
     </Head>
     <Body>
       <Row>

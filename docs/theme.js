@@ -81,10 +81,14 @@ export default {
       // hoverColor: '#f1f1f1',
       // border: '1px solid red',
     },
+    tr: {
+      color: 'text',
+    },
     td: {
       p: 3,
     },
     th: {
+      color: 'primary',
       p: 3,
     },
   },

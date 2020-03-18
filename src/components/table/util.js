@@ -18,6 +18,11 @@ const withTruncatedProp = (comp) => {
   );
 };
 
-const getThemeStylesObj = (theme, styleObj, obj) => theme['styles'][styleObj][obj];
+const withDefaultThemeStyle = (comp) => styled(comp)(({ theme, color, bg }) =>
+  css({
+    color,
+    bg,
+  })(theme)
+);
 
-export { withTruncatedProp, getThemeStylesObj };
+export { withTruncatedProp, withDefaultThemeStyle };
