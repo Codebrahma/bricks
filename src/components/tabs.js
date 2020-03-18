@@ -7,10 +7,10 @@ import { getThemeStyles } from './../utils/getStyles';
 
 const ENTER_KEY = 13;
 
-const defaultStyle = color => ({
-  color,
+const defaultStyle = themeColor => ({
+  color: themeColor,
   borderBottom: '2px solid',
-  borderColor: color,
+  borderColor: themeColor,
 });
 
 const getTheme = (theme, variant, key) =>
@@ -20,14 +20,16 @@ const Tab = styled(InlineBlock)`
   cursor: pointer;
   ${({ theme, selected, variant }) =>
     css({
-      marginRight: '10px',
-      padding: 2,
+      px: 2,
+      py: 3,
       ...getTheme(theme, variant, 'tab'),
-      ...(selected ? defaultStyle('primaryDark') : {}),
-      '&:hover': {
-        ...defaultStyle('primary'),
-      },
-      ':focus': {
+      ...(selected
+        ? {
+          ...defaultStyle('primaryDark'),
+          ...getTheme(theme, variant, 'tabSelected'),
+        }
+        : {}),
+      '&:hover, &:focus': {
         outline: 'none',
         ...defaultStyle('primary'),
       },
@@ -35,7 +37,10 @@ const Tab = styled(InlineBlock)`
 `;
 
 const TabContainer = styled(Box)`
-  border-bottom: 1px solid #888;
+  ${({theme, variant}) => css({
+    borderBottom: '1px solid #888',
+    ...getTheme(theme, variant, 'tabContainer'),
+  })(theme)}
 `;
 
 const Content = styled(Box)`
@@ -51,7 +56,7 @@ const Tabs = ({ children, selected, variant, ...otherProps }) => {
 
   return (
     <Box {...otherProps}>
-      <TabContainer>
+      <TabContainer variant={variant}>
         {labels.map((label, i) => (
           <Tab
             variant={variant}
@@ -88,4 +93,14 @@ Tabs.defaultProps = {
   variant: 'primary',
 };
 
-export default Tabs;
+const T = () => {
+  return (
+    <Tabs selected='1'>
+      <Tabs.tab label='tab1'>This is tab test1</Tabs.tab>
+      <Tabs.tab label='tab2'>You can render anything you want here</Tabs.tab>
+      <Tabs.tab label='tab3'>This is tab test3</Tabs.tab>
+    </Tabs>
+  );
+};
+
+export default T;

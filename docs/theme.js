@@ -111,7 +111,14 @@ export default {
     primary: {
       tab: {
         color: 'primaryLight',
-        p: 3,
+        py: 3,
+        px: 4,
+      },
+      tabContainer: {
+        bg: 'borderGray',
+      },
+      tabSelected: {
+        // color: 'error',
       },
       content: {
         p: 3,
