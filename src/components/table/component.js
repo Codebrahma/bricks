@@ -21,11 +21,13 @@ const Table = styled(themeUi.table)(
               : '',
         borderBottom: !bordered && !borderless ? '1px solid #ddd' : '',
       },
-      'tbody tr:nth-of-type(odd)': striped && {
-        background: getThemeStyles(theme, 'styles', 'table', 'stripColor') || '#ddd',
+      'tbody tr:nth-of-type(even)': striped && {
+        background: '#ddd',
+        ...getThemeStyles(theme, 'styles', 'table', 'stripColor'),
       },
       'tbody tr:hover': hoverable && {
-        background: getThemeStyles(theme, 'styles', 'table', 'hoverColor') || '#f1f1f1',
+        background: '#f1f1f1',
+        ...getThemeStyles(theme, 'styles', 'table', 'hoverColor'),
       },
     })(theme)
 );
