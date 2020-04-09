@@ -15,3 +15,5 @@ export Tooltip from './tooltip';
 export { Table, Head, HeaderRow, HeaderCell, Body, Row, Cell, ScrollableTable } from './table';
 export { Modal, openModal, closeModal, PortableModalContainer } from './modal';
 export { Toast, openToast, PortableToastContainer } from './toast';
+export Pill from './pill';
+export Switch from './switch';

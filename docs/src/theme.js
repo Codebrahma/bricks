@@ -68,9 +68,7 @@ export default {
       color: 'darkGray',
     },
   },
-  breakpoints: [
-    '320px', '425px', '768px', '1024px',
-  ],
+  breakpoints: ['320px', '425px', '768px', '1024px'],
   space: [0, 2, 4, 8, 16, 32, 64, 128],
   radii: [0, 1, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20],
 
@@ -93,6 +91,11 @@ export default {
     },
   },
 
+  breakpoints: ['320px', '425px', '768px', '1024px'],
+  space: [0, 2, 4, 8, 16, 32, 64, 128],
+  radii: [0, 1, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20],
+  lineHeight: [1, 1.15, 1.3, 1.45, 1.6, 1.75, 1.9, 2.05],
+  zIndices: [-32, -16, -8, -4, -2, -1, 0, 1, 2, 4, 8, 16, 32],
   fontSizes: {
     h1: '28px',
     h2: '24px',
@@ -100,6 +103,7 @@ export default {
     h4: '20px',
     h5: '18px',
     text: '16px',
+    small: '14px',
   },
   toast: {
     primary: {
@@ -127,11 +131,68 @@ export default {
       color: 'white',
     },
   },
+
+  pill: {
+    primary: {
+      container: {
+        px: 3,
+        py: 2,
+        borderRadius: 3,
+        bg: 'white',
+      },
+      content: {
+        color: 'primary',
+      },
+      closeIcon: {
+        height: '20px',
+        width: '20px',
+      },
+    },
+  },
+
+  switch: {
+    sm: {
+      switchBody: {
+        width: '30px',
+        height: '15px',
+        borderColor: 'borderGray',
+        bg: 'borderGray',
+        '&:checked': {
+          borderColor: 'success',
+          bg: 'success',
+        },
+      },
+      switchHandle: {
+        borderColor: 'borderGray',
+        bg: 'primary',
+      },
+    },
+  },
+
   forms: {
     input: {
       p: 3,
-      borderColor: 'border',
+      borderColor: 'borderGray',
       borderRadius: 2,
+    },
+  },
+
+  styles: {
+    root: {
+      lineHeight: 4,
+    },
+    img: {
+      maxWidth: '600px',
+    },
+    table: {
+      borderCollapse: 'collapse',
+      'td, th': {
+        p: 3,
+        borderWidth: 1,
+        borderStyle: 'solid',
+        borderColor: 'borderGray',
+        textAlign: 'left',
+      },
     },
   },
 };
