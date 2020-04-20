@@ -29,6 +29,10 @@ const sidebarLinks = [
     ref: '/pill',
   },
   {
+    name: 'Corousel',
+    ref: '/corousel',
+  },
+  {
     name: 'Theming',
     ref: '/theming',
   },
