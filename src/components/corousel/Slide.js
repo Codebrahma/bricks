@@ -1,15 +1,18 @@
 import styled from '@emotion/styled';
-import { Box, css } from 'theme-ui';
+import { Flex, css } from 'theme-ui';
 
-const Slide = styled(Box)`
-  ${({ theme, img }) => css({
+const Slide = styled(Flex)`
+  ${({ theme, img, position }) => css({
     height: '100%',
     minWidth: '100%',
     width: '100%',
-    backgroundImage: `url(${img})`,
+    background: '#ddd',
+    backgroundImage: `url(${img || ''})`,
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
+    alignItems: 'center',
+    justifyContent: position,
   })(theme)}
 `;
 

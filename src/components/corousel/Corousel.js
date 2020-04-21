@@ -4,15 +4,21 @@ import React, { useState, useRef, useEffect, Fragment } from 'react';
 import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
 import { Box } from 'theme-ui';
+import { Relative, Absolute } from '../position';
 
 import SliderContent from './SliderContent';
 import Slide from './Slide';
 import Arrow from './Arrow';
 import Indicators from './Indicator';
 
-const CorouselContainer = styled(Box)`
-  position: relative;
-  height: 80vh;
+const ShowStatus = styled(Absolute)`
+  top: 10px;
+  right: 10px;
+  color: #333;
+`;
+
+const CorouselContainer = styled(Relative)`
+  height: 500px;
   width: 100%;
   margin: 0 auto;
   overflow: hidden;
@@ -25,7 +31,6 @@ const Corousel = ({
   showArrows,
   showIndicators,
   contentPosition,
-  stopOnHover,
   showStatus,
 }) => {
   const [state, setState] = useState({
@@ -103,7 +108,7 @@ const Corousel = ({
         transition={transition}
       >
         {children.map(({props: { children, img }}) => (
-          <Slide img={img}>{children}</Slide>
+          <Slide img={img} position={contentPosition}><Box>{children}</Box></Slide>
         ))}
       </SliderContent>
       {showArrows && (
@@ -119,6 +124,11 @@ const Corousel = ({
           onClick={onCLickIndicator}
         />
       )}
+      {showStatus && (
+        <ShowStatus>
+          {activeIndex + 1}/ {children.length}
+        </ShowStatus>
+      )}
     </CorouselContainer>
   );
 };
@@ -131,13 +141,17 @@ Corousel.propTypes = {
   autoPlay: PropTypes.bool,
   showArrows: PropTypes.bool,
   showIndicators: PropTypes.bool,
+  showStatus: PropTypes.bool,
+  contentPosition: PropTypes.string,
 };
 
 Corousel.defaultProps = {
-  transitionTimer: 2000,
+  transitionTimer: 4000,
   autoPlay: true,
   showArrows: true,
   showIndicators: true,
+  showStatus: true,
+  contentPosition: 'center',
 };
 
 export default Corousel;

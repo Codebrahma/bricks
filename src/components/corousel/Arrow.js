@@ -6,22 +6,23 @@ import styled from '@emotion/styled';
 const Arr = styled(Box)`
   display: flex;
   position: absolute;
-  top: 50%;
+  top: 0;
 
   ${({direction}) => css({
-    right: direction === 'right' ? '25px' : 'unset',
-    left: direction === 'left' ? '25px' : 'unset',
+    right: direction === 'right' ? '0px' : 'unset',
+    left: direction === 'left' ? '0px' : 'unset',
   })}
-  height: 50px;
+  height: 100%;
   width: 50px;
   justify-content: center;
-  background: white;
-  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 0;
   cursor: pointer;
   align-items: center;
   transition: transform ease-in 0.1s;
   &:hover {
-    transform: scale(1.1);
+
+    background: rgba(255, 255, 255, 0.3);
   }
   img {
     ${({direction}) => css({
