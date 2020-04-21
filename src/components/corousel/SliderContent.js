@@ -1,6 +1,4 @@
-import React from 'react';
 import styled from '@emotion/styled';
-import PropTypes from 'prop-types';
 import { Box } from 'theme-ui';
 
 const SliderContent = styled(Box)`

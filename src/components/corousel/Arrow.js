@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Box, css } from 'theme-ui';
 import styled from '@emotion/styled';
 
@@ -40,5 +41,10 @@ const Arrow = ({ direction, handleClick }) => (
     {direction === 'right' ? (<span> &#8594;</span>) : (<span> &#8592; </span>)}
   </Arr>
 );
+
+Arrow.propTypes = {
+  direction: PropTypes.string.isRequired,
+  handleClick: PropTypes.func.isRequired,
+};
 
 export default Arrow;

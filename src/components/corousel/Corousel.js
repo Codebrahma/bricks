@@ -25,13 +25,9 @@ const Corousel = ({ children }) => {
     transition: 0.45,
   });
   const coroselRef = useRef(null);
-
   const { translate, transition, activeIndex } = state;
 
-  const getWidth = () => {
-    console.log(coroselRef.current.getBoundingClientRect().width);
-    return coroselRef.current.getBoundingClientRect().width;
-  };
+  const getWidth = () => coroselRef.current.getBoundingClientRect().width;
 
   const nextSlide = () => {
     if (activeIndex === children.length - 1) {
@@ -78,7 +74,6 @@ const Corousel = ({ children }) => {
       <SliderContent
         translate={translate}
         transition={transition}
-        // width={getWidth()}
       >
         {children.map(({props: { children, img }}) => (
           <Slide img={img}>{children}</Slide>
@@ -86,7 +81,11 @@ const Corousel = ({ children }) => {
       </SliderContent>
       <Arrow direction='left' handleClick={prevSlide} />
       <Arrow direction='right' handleClick={nextSlide} />
-      <Indicators len={children.length} activeIndex={activeIndex} onClick={onCLickIndicator} />
+      <Indicators
+        SlideLength={children.length}
+        activeIndex={activeIndex}
+        onClick={onCLickIndicator}
+      />
     </CorouselContainer>
   );
 };

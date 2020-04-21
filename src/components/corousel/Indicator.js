@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { Box, css } from 'theme-ui';
 
@@ -12,7 +13,7 @@ const Indicator = styled(Box)`
   })}
 `;
 
-const Indicators = ({ len, activeIndex, onClick }) => (
+const Indicators = ({ SlideLength, activeIndex, onClick }) => (
   <Box
     css={{
       position: 'absolute',
@@ -23,10 +24,16 @@ const Indicators = ({ len, activeIndex, onClick }) => (
       justifyContent: 'center',
     }}
   >
-    {Array.from({ length: len }, (_, i) => i).map((val, i) => (
+    {Array.from({ length: SlideLength }, (_, i) => i).map((val, i) => (
       <Indicator key={val} active={activeIndex === i} onClick={() => onClick(i)} />
     ))}
   </Box>
 );
+
+Indicators.propTypes = {
+  SlideLength: PropTypes.number.isRequired,
+  activeIndex: PropTypes.number.isRequired,
+  onClick: PropTypes.func.isRequired,
+};
 
 export default Indicators;
