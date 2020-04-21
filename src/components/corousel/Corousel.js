@@ -1,10 +1,9 @@
-/* eslint-disable react/prop-types */
-
 import React, { useState, useRef, useEffect, Fragment } from 'react';
 import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
 import { Box } from 'theme-ui';
 import { Relative, Absolute } from '../position';
+import { applyVariation } from '../../utils/getStyles';
 
 import SliderContent from './SliderContent';
 import Slide from './Slide';
@@ -14,14 +13,15 @@ import Indicators from './Indicator';
 const ShowStatus = styled(Absolute)`
   top: 10px;
   right: 10px;
-  color: #333;
+  ${({ theme, variant }) => applyVariation(theme, `${variant}.status`, 'corousel')}
 `;
 
 const CorouselContainer = styled(Relative)`
-  height: 500px;
+  height: 600px;
   width: 100%;
   margin: 0 auto;
   overflow: hidden;
+  ${({ theme, variant }) => applyVariation(theme, `${variant}.container`, 'corousel')}
 `;
 
 const Corousel = ({
@@ -32,6 +32,7 @@ const Corousel = ({
   showIndicators,
   contentPosition,
   showStatus,
+  variant,
 }) => {
   const [state, setState] = useState({
     activeIndex: 0,
@@ -50,8 +51,8 @@ const Corousel = ({
     const play = () => {
       autoPlay && autoPlayRef.current();
     };
-
     let interval;
+
     if (autoPlay) {
       interval = setInterval(play, transitionTimer);
     }
@@ -102,30 +103,32 @@ const Corousel = ({
   };
 
   return (
-    <CorouselContainer ref={coroselRef}>
+    <CorouselContainer ref={coroselRef} variant={variant}>
       <SliderContent
         translate={translate}
         transition={transition}
+        variant={variant}
       >
-        {children.map(({props: { children, img }}) => (
-          <Slide img={img} position={contentPosition}><Box>{children}</Box></Slide>
+        {children.map(({props: { children, img }}, i) => (
+          <Slide key={i} img={img} position={contentPosition} variant={variant}><Box>{children && children}</Box></Slide>
         ))}
       </SliderContent>
       {showArrows && (
         <Fragment>
-          <Arrow direction='left' handleClick={prevSlide} />
-          <Arrow direction='right' handleClick={nextSlide} />
+          <Arrow direction='left' handleClick={prevSlide} variant={variant} />
+          <Arrow direction='right' handleClick={nextSlide} variant={variant} />
         </Fragment>
       )}
       {showIndicators && (
         <Indicators
           SlideLength={children.length}
           activeIndex={activeIndex}
+          variant={variant}
           onClick={onCLickIndicator}
         />
       )}
       {showStatus && (
-        <ShowStatus>
+        <ShowStatus variant={variant}>
           {activeIndex + 1}/ {children.length}
         </ShowStatus>
       )}
@@ -133,7 +136,14 @@ const Corousel = ({
   );
 };
 
+Corousel.Item = Box;
+
 Corousel.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.node,
+    PropTypes.string,
+    PropTypes.arrayOf(PropTypes.node),
+  ]),
   transitionTimer: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.string,
@@ -143,15 +153,18 @@ Corousel.propTypes = {
   showIndicators: PropTypes.bool,
   showStatus: PropTypes.bool,
   contentPosition: PropTypes.string,
+  variant: PropTypes.string,
 };
 
 Corousel.defaultProps = {
+  children: null,
   transitionTimer: 4000,
   autoPlay: true,
   showArrows: true,
   showIndicators: true,
   showStatus: true,
   contentPosition: 'center',
+  variant: 'primary',
 };
 
 export default Corousel;
