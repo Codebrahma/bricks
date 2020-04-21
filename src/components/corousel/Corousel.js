@@ -1,4 +1,5 @@
-/* eslint-disable standard/object-curly-even-spacing */
+/* eslint-disable react/prop-types */
+
 import React, { useState, useRef } from 'react';
 import styled from '@emotion/styled';
 // import PropTypes from 'prop-types';
@@ -7,6 +8,7 @@ import { Box } from 'theme-ui';
 import SliderContent from './SliderContent';
 import Slide from './Slide';
 import Arrow from './Arrow';
+import Indicators from './Indicator';
 
 const CorouselContainer = styled(Box)`
   position: relative;
@@ -63,6 +65,14 @@ const Corousel = ({ children }) => {
     });
   };
 
+  const onCLickIndicator = (clickedIndex) => {
+    setState({
+      ...state,
+      translate: (clickedIndex) * getWidth(),
+      activeIndex: clickedIndex,
+    });
+  };
+
   return (
     <CorouselContainer ref={coroselRef}>
       <SliderContent
@@ -70,13 +80,13 @@ const Corousel = ({ children }) => {
         transition={transition}
         // width={getWidth()}
       >
-        {children.map(({ props: { children, img }}) => (
+        {children.map(({props: { children, img }}) => (
           <Slide img={img}>{children}</Slide>
         ))}
-        {/* <h1>Slide</h1> */}
       </SliderContent>
       <Arrow direction='left' handleClick={prevSlide} />
       <Arrow direction='right' handleClick={nextSlide} />
+      <Indicators len={children.length} activeIndex={activeIndex} onClick={onCLickIndicator} />
     </CorouselContainer>
   );
 };

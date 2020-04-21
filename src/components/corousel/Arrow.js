@@ -37,7 +37,7 @@ const Arrow = ({ direction, handleClick }) => (
     direction={direction}
     onClick={handleClick}
   >
-    {direction === 'right' ? (<h1> &#8594;</h1>) : (<h1> &#8592; </h1>)}
+    {direction === 'right' ? (<span> &#8594;</span>) : (<span> &#8592; </span>)}
   </Arr>
 );
 
