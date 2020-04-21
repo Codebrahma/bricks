@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
 
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect, Fragment } from 'react';
 import styled from '@emotion/styled';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { Box } from 'theme-ui';
 
 import SliderContent from './SliderContent';
@@ -18,14 +18,41 @@ const CorouselContainer = styled(Box)`
   overflow: hidden;
 `;
 
-const Corousel = ({ children }) => {
+const Corousel = ({
+  children,
+  autoPlay,
+  transitionTimer,
+  showArrows,
+  showIndicators,
+  contentPosition,
+  stopOnHover,
+  showStatus,
+}) => {
   const [state, setState] = useState({
     activeIndex: 0,
     translate: 0,
     transition: 0.45,
   });
   const coroselRef = useRef(null);
+  const autoPlayRef = useRef();
   const { translate, transition, activeIndex } = state;
+
+  useEffect(() => {
+    autoPlayRef.current = nextSlide;
+  });
+
+  useEffect(() => {
+    const play = () => {
+      autoPlay && autoPlayRef.current();
+    };
+
+    let interval;
+    if (autoPlay) {
+      interval = setInterval(play, transitionTimer);
+    }
+
+    return () => autoPlay && clearInterval(interval);
+  }, []);
 
   const getWidth = () => coroselRef.current.getBoundingClientRect().width;
 
@@ -79,15 +106,38 @@ const Corousel = ({ children }) => {
           <Slide img={img}>{children}</Slide>
         ))}
       </SliderContent>
-      <Arrow direction='left' handleClick={prevSlide} />
-      <Arrow direction='right' handleClick={nextSlide} />
-      <Indicators
-        SlideLength={children.length}
-        activeIndex={activeIndex}
-        onClick={onCLickIndicator}
-      />
+      {showArrows && (
+        <Fragment>
+          <Arrow direction='left' handleClick={prevSlide} />
+          <Arrow direction='right' handleClick={nextSlide} />
+        </Fragment>
+      )}
+      {showIndicators && (
+        <Indicators
+          SlideLength={children.length}
+          activeIndex={activeIndex}
+          onClick={onCLickIndicator}
+        />
+      )}
     </CorouselContainer>
   );
+};
+
+Corousel.propTypes = {
+  transitionTimer: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string,
+  ]),
+  autoPlay: PropTypes.bool,
+  showArrows: PropTypes.bool,
+  showIndicators: PropTypes.bool,
+};
+
+Corousel.defaultProps = {
+  transitionTimer: 2000,
+  autoPlay: true,
+  showArrows: true,
+  showIndicators: true,
 };
 
 export default Corousel;
