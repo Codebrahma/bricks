@@ -2,6 +2,8 @@ export * from 'theme-ui';
 
 export { Relative, Absolute, Fixed, Sticky } from './position';
 export { Inline, InlineBlock, InlineFlex } from './layout';
+export { Modal, openModal, closeModal, PortableModalContainer } from './modal';
+export { Toast, openToast, PortableToastContainer } from './toast';
 
 export { default as Background } from './background';
 export { default as Input } from './input';
@@ -13,8 +15,6 @@ export { default as ReadMore } from './readMore';
 export { default as Hide } from './hide';
 export { default as withBeforeAfter } from './withBeforeAfter';
 export { default as Tooltip } from './tooltip';
-export { Modal, openModal, closeModal, PortableModalContainer } from './modal';
-export { Toast, openToast, PortableToastContainer } from './toast';
 export { default as Pill } from './pill';
 export { default as Switch } from './switch';
-export { Corousel } from './corousel/index';
+export { default as Corousel } from './corousel/index';

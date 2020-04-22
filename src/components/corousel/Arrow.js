@@ -39,9 +39,12 @@ const Arr = styled(Box)`
       : applyVariation(theme, `${variant}.arrows.right`, 'corousel')}
 `;
 
-const Arrow = ({ direction, handleClick, variant }) => (
+const Arrow = ({ direction, handleClick, variant, arrow }) => (
   <Arr direction={direction} onClick={handleClick} variant={variant}>
-    {direction === 'right' ? <span> &#8592; </span> : <span> &#8594;</span>}
+    {direction === 'right'
+      ? (arrow ? (<img src={arrow} />) : (<span> &#8592; </span>))
+      : (arrow ? (<img src={arrow} />) : (<span> &#8594;</span>))
+    }
   </Arr>
 );
 
@@ -49,6 +52,11 @@ Arrow.propTypes = {
   direction: PropTypes.string.isRequired,
   handleClick: PropTypes.func.isRequired,
   variant: PropTypes.string.isRequired,
+  arrow: PropTypes.node,
+};
+
+Arrow.defaultProps = {
+  arrow: null,
 };
 
 export default Arrow;
