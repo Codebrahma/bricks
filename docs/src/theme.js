@@ -172,4 +172,47 @@ export default {
       },
     },
   },
+
+  corousel: {
+    primary: {
+      container: {
+        height: '500px',
+      },
+      content: {
+        justifyContent: 'center',
+      },
+      arrows: {
+        left: {
+          top: '50%',
+          height: '50px',
+          bg: 'white',
+          left: '10px',
+          borderRadius: '50%',
+        },
+        right: {
+          top: '50%',
+          height: '50px',
+          bg: 'white',
+          right: '10px',
+          borderRadius: '50%',
+        },
+      },
+      indicators: {
+        container: {
+          bg: 'transparent',
+        },
+        indicator: {
+          width: '15px',
+          p: 1,
+          borderRadius: 0,
+        },
+        selectedIndicator: {
+          bg: 'primary',
+        },
+      },
+      status: {
+        color: 'borderGray',
+      },
+    },
+  },
 };
