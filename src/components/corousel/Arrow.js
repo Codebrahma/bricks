@@ -42,8 +42,8 @@ const Arr = styled(Box)`
 const Arrow = ({ direction, handleClick, variant, arrow }) => (
   <Arr direction={direction} onClick={handleClick} variant={variant}>
     {direction === 'right'
-      ? (arrow ? (<img src={arrow} />) : (<span> &#8592; </span>))
-      : (arrow ? (<img src={arrow} />) : (<span> &#8594;</span>))
+      ? (arrow ? (<img src={arrow} />) : (<span> &#8594;</span>))
+      : (arrow ? (<img src={arrow} />) : (<span> &#8592; </span>))
     }
   </Arr>
 );

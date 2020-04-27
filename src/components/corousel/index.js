@@ -123,13 +123,13 @@ const Corousel = ({
         <Fragment>
           <Arrow
             direction='left'
-            handleClick={nextSlide}
+            handleClick={prevSlide}
             variant={variant}
             arrow={leftArrow}
           />
           <Arrow
             direction='right'
-            handleClick={prevSlide}
+            handleClick={nextSlide}
             variant={variant}
             arrow={rightArrow}
           />

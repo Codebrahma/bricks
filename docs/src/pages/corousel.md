@@ -23,3 +23,17 @@ Primitive Corousel component
 ```
 
 </Editor>
+
+## props
+
+| prop            | type          | defaultProp |
+| --------------- | ------------- | ----------- |
+| autoPlay        | bool          | true        |
+| transitionTimer | number/string | 4000        |
+| showArrows      | bool          | primary     |
+| showIndicators  | bool          | true        |
+| contentPosition | string        | center      |
+| showStatus      | bool          | true        |
+| variant         | string        | primary     |
+| leftArrow       | bool          |             |
+| rightArrow      | bool          |             |
