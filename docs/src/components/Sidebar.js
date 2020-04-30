@@ -45,12 +45,16 @@ const sidebarLinks = [
     ref: '/buttonGroup',
   },
   {
-    name: 'Theming',
-    ref: '/theming',
-  },
-  {
     name: 'DropDownMenu',
     ref: '/dropdownMenu',
+  },
+  {
+    name: 'AutoComplete',
+    ref: '/autocomplete',
+  },
+  {
+    name: 'Theming',
+    ref: '/theming',
   },
 ];
 
