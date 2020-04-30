@@ -20,3 +20,4 @@ export Switch from './switch';
 export Collapse from './collapse';
 export Breadcrumbs from './breadcrumbs';
 export InputGroup from './inputGroup';
+export ButtonGroup from './buttonGroup';

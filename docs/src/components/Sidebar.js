@@ -41,6 +41,10 @@ const sidebarLinks = [
     ref: '/inputGroup',
   },
   {
+    name: 'ButtonGroup',
+    ref: '/buttonGroup',
+  },
+  {
     name: 'Theming',
     ref: '/theming',
   },
