@@ -198,4 +198,107 @@ export default {
       },
     },
   },
+
+  collapse: {
+    primary: {
+      head: {
+        p: 3,
+        bg: 'borderGray',
+        borderRadius: 3,
+        borderWidth: 1,
+        borderStyle: 'solid',
+        borderColor: 'darkGray',
+        cursor: 'pointer',
+      },
+      body: {
+        p: 4,
+        borderRadius: 3,
+        borderWidth: 1,
+        borderStyle: 'solid',
+        borderColor: 'darkGray',
+      },
+    },
+  },
+  breadcrumbs: {
+    primary: {
+      breadcrumbContainer: {
+        p: 3,
+      },
+      breadcrumbItem: {
+        '&:hover': {
+          color: 'primary',
+        },
+        '&:focus': {
+          outline: 'none',
+          color: 'primary',
+        },
+      },
+      separater: {
+        mx: 3,
+      },
+    },
+  },
+
+  inputGroup: {
+    primary: {
+      marginTop: '10px',
+      label: {
+        p: 3,
+      },
+      input: {
+        borderWidth: 1,
+        borderStyle: 'solid',
+        borderColor: 'borderGray',
+      },
+    },
+  },
+
+  buttonGroup: {
+    primary: {
+      borderRadius: 4,
+      m: 2,
+    },
+    secondary: {
+      button: {
+        mr: 1,
+        '&:first-of-type': {
+          borderTopLeftRadius: 11,
+          borderBottomLeftRadius: 11,
+        },
+        '&:last-child': {
+          borderTopRightRadius: 11,
+          borderBottomRightRadius: 11,
+        },
+      },
+    },
+  },
+
+  autoComplete: {
+    primary: {
+      container: {
+        padding: 3,
+        borderRadius: 2,
+        '&:focus': {
+          outline: 'none',
+          borderColor: 'primary',
+        },
+      },
+      optionsContainer: {
+        borderRadius: 2,
+        bg: 'white',
+      },
+      option: {
+        p: 3,
+        '&:hover': {
+          bg: 'borderGray',
+        },
+      },
+      multiselectContainer: {
+        bg: 'borderGray',
+      },
+      placeholder: {
+        color: 'darkGray',
+      },
+    },
+  },
 };
