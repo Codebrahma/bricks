@@ -37,6 +37,10 @@ const sidebarLinks = [
     ref: '/breadcrumbs',
   },
   {
+    name: 'InputGroup',
+    ref: '/inputGroup',
+  },
+  {
     name: 'Theming',
     ref: '/theming',
   },
