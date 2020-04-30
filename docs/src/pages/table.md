@@ -10,32 +10,37 @@ Primitive checkbox component styled as Switch.
     {
       number: 1,
       name: 'Praveen',
-      marks: '80',
+      marks: '50',
     },
     {
       number: 2,
       name: 'Kavin',
-      marks: '90',
-    },  
+      marks: '20',
+    },
     {
       number: 3,
       name: 'Rahul',
-      marks: '100',
+      marks: '80',
     },
     {
       number: 4,
       name: 'Dhanush',
-      marks: '50',
+      marks: '10',
     },
   ]}
   colNames={[
+    { title: 'Number', key: 'number' },
+    { title: 'Name', key: 'name' },
     {
-      title: 'Number',
-      key: 'number',
-      sortable: true
+      title: 'Marks',
+      key: 'marks',
+      render: columnData => {
+        if (columnData >= 25) {
+          return <p style={{ color: 'green', margin: 0 }}>{columnData}</p>;
+        }
+        return <p style={{ color: 'red', margin: 0 }}>{columnData}</p>;
+      },
     },
-    { title: 'Name', key: 'name', sortable: true },
-    { title: 'Marks', key: 'marks' }
   ]}
 />
 ```
