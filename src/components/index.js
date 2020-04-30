@@ -1,5 +1,4 @@
 export * from 'theme-ui';
-
 export { Relative, Absolute, Fixed, Sticky } from './position';
 export { Inline, InlineBlock, InlineFlex } from './layout';
 export Background from './background';
@@ -20,3 +19,4 @@ export Switch from './switch';
 export Tabs from './tab';
 export Collapse from './collapse';
 export Breadcrumbs from './breadcrumbs';
+export Table from './table';
