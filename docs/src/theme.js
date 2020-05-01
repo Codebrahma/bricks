@@ -198,4 +198,35 @@ export default {
       },
     },
   },
+
+  autoComplete: {
+    primary: {
+      container: {
+        px: 3,
+        py: 2,
+        borderRadius: 2,
+        '&:focus': {
+          outline: 'none',
+          borderColor: 'primary',
+        },
+      },
+      optionsContainer: {
+        borderRadius: 3,
+        bg: 'white',
+        marginTop: 3,
+      },
+      option: {
+        p: 3,
+        '&:hover': {
+          bg: 'borderGray',
+        },
+      },
+      multiselectContainer: {
+        bg: 'borderGray',
+      },
+      placeholder: {
+        color: 'darkGray',
+      },
+    },
+  },
 };
