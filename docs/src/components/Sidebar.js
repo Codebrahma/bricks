@@ -48,6 +48,10 @@ const sidebarLinks = [
     name: 'Tabs',
     ref: '/tab',
   },
+  {
+    name: 'Message',
+    ref: '/message',
+  },
 ];
 
 export const cssNavLink = css`
