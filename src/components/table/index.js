@@ -1,10 +1,8 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable no-nested-ternary */
-/** @jsx jsx */
-
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { useEffect, useState } from 'react';
-import { jsx } from 'theme-ui';
+
 import {
   DefaultTable,
   TableContainer,
@@ -16,7 +14,17 @@ import {
   HeaderText,
 } from './components';
 
-const Table = ({ dataSource, colNames, headerColor, variant, sx, ...rest }) => {
+const Table = ({
+  dataSource,
+  colNames,
+  headerColor,
+  variant,
+  sortIcon,
+  stripped,
+  hoverable,
+  bordered,
+  ...rest
+}) => {
   const [obtaineddataSource, setobtaineddataSource] = useState(dataSource);
   const [colSortIndex, setSortIndex] = useState([]);
 
@@ -68,13 +76,14 @@ const Table = ({ dataSource, colNames, headerColor, variant, sx, ...rest }) => {
   }, []);
 
   return (
-    <TableContainer {...rest}>
-      <DefaultTable>
+    <TableContainer {...rest} variant={variant}>
+      <DefaultTable variant={variant}>
         <thead>
-          <Tr>
+          <Tr hoverable={hoverable} bordered={bordered} variant={variant}>
             {colNames.map((colName, index) => (
               <Th
                 key={colName.key}
+                variant={variant}
                 style={{ cursor: colName.sortable ? 'pointer' : 'default' }}
                 onClick={
                   colName.sortable
@@ -86,7 +95,7 @@ const Table = ({ dataSource, colNames, headerColor, variant, sx, ...rest }) => {
               >
                 {colName.sortable ? (
                   <HeaderContainer>
-                    <HeaderText>{colName.title}</HeaderText>
+                    <HeaderText variant={variant}>{colName.title}</HeaderText>
 
                     <ArrowIcon
                       style={{
@@ -94,15 +103,9 @@ const Table = ({ dataSource, colNames, headerColor, variant, sx, ...rest }) => {
                           ? 'rotate(0)'
                           : 'rotate(-180deg)',
                       }}
+                      variant={variant}
                     >
-                      <svg
-                        xmlns='http://www.w3.org/2000/svg'
-                        width='13'
-                        height='13'
-                        viewBox='0 0 24 24'
-                      >
-                        <path d='M12 0l8 9h-6v15h-4v-15h-6z' />
-                      </svg>
+                      {sortIcon}
                     </ArrowIcon>
                   </HeaderContainer>
                 ) : (
@@ -115,12 +118,21 @@ const Table = ({ dataSource, colNames, headerColor, variant, sx, ...rest }) => {
         <tbody>
           {obtaineddataSource.map((data) => {
             return (
-              <Tr key={Math.random()}>
+              <Tr
+                key={Math.random()}
+                stripped={stripped}
+                hoverable={hoverable}
+                bordered={bordered}
+                variant={variant}
+              >
                 {colNames.map((colName) => {
                   if (colName.render !== undefined) {
                     if (colName.key in data) {
                       return (
-                        <Td key={data[colName.key] + Math.random()}>
+                        <Td
+                          key={data[colName.key] + Math.random()}
+                          variant={variant}
+                        >
                           {colName.render(data[colName.key])}
                         </Td>
                       );
@@ -130,7 +142,10 @@ const Table = ({ dataSource, colNames, headerColor, variant, sx, ...rest }) => {
                   }
                   if (colName.key in data) {
                     return (
-                      <Td key={data[colName.key] + Math.random()}>
+                      <Td
+                        key={data[colName.key] + Math.random()}
+                        variant={variant}
+                      >
                         {data[colName.key]}
                       </Td>
                     );
@@ -150,15 +165,28 @@ Table.propTypes = {
   dataSource: PropTypes.arrayOf(PropTypes.object).isRequired,
   colNames: PropTypes.arrayOf(PropTypes.object).isRequired,
   headerColor: PropTypes.string,
-  sx: PropTypes.objectOf(
-    PropTypes.oneOfType([PropTypes.number, PropTypes.string])
-  ),
   variant: PropTypes.string,
+  sortIcon: PropTypes.node,
+  stripped: PropTypes.bool,
+  hoverable: PropTypes.bool,
+  bordered: PropTypes.bool,
 };
 Table.defaultProps = {
   headerColor: '',
-  sx: {},
   variant: 'primary',
+  sortIcon: (
+    <svg
+      xmlns='http://www.w3.org/2000/svg'
+      width='13'
+      height='13'
+      viewBox='0 0 24 24'
+    >
+      <path d='M12 0l8 9h-6v15h-4v-15h-6z' />
+    </svg>
+  ),
+  stripped: false,
+  hoverable: false,
+  bordered: true,
 };
 
 export default Table;

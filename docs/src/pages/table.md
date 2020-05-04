@@ -34,6 +34,7 @@ Primitive checkbox component styled as Switch.
     {
       title: 'Marks',
       key: 'marks',
+      sortable: true,
       render: columnData => {
         if (columnData >= 25) {
           return <p style={{ color: 'green', margin: 0 }}>{columnData}</p>;
@@ -42,6 +43,7 @@ Primitive checkbox component styled as Switch.
       },
     },
   ]}
+  hoverable={true}
 />
 ```
 
