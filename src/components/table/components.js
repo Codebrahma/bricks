@@ -41,9 +41,9 @@ const Td = styled.td`
 `;
 
 const Th = styled.th`
-  ${({ theme }) =>
+  ${({ theme, headerColor }) =>
     css({
-      bg: 'inherit',
+      bg: headerColor.length > 0 ? headerColor : 'inherit',
       color: 'inherit',
     })(theme)}
   ${({ theme, variant }) => applyVariation(theme, `${variant}.th`, 'table')}

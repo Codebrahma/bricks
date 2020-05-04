@@ -84,6 +84,7 @@ const Table = ({
               <Th
                 key={colName.key}
                 variant={variant}
+                headerColor={headerColor}
                 style={{ cursor: colName.sortable ? 'pointer' : 'default' }}
                 onClick={
                   colName.sortable
