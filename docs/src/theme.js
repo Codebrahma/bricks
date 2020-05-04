@@ -182,46 +182,20 @@ export default {
   table: {
     primary: {
       container: {
-        overflowX: 'auto',
         width: 750,
         bg: 'white',
       },
-      defaultTable: {
-        borderCollapse: 'collapse',
-        width: '100%',
-      },
       td: {
-        bg: 'inherit',
-        padding: '15px',
-        color: 'inherit',
         fontSize: 14,
-      },
-      tr: {
-        border: '1px solid #dddddd',
-        textAlign: 'left',
+        p: 10,
       },
       th: {
-        bg: 'inherit',
         fontSize: 16,
-        padding: '15px',
-        color: 'inherit',
-        '&:hover': {
-          bg: ' rgba(227, 240, 247, 0.5)',
-        },
-        '&:active': {
-          bg: ' rgba(227, 240, 247, 1)',
-        },
-      },
-      arrowIcon: {
-        transition: 'all 0.3s ease-in-out',
-        cursor: 'pointer',
+        p: 10,
+        fontWeight: 'bold',
       },
       headerText: {
         mr: 10,
-      },
-      headerContainer: {
-        display: 'flex',
-        alignItems: 'center',
       },
     },
   },
