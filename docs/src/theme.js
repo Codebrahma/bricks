@@ -179,6 +179,31 @@ export default {
       },
     },
   },
+  message: {
+    primary: {
+      wrapper: {
+        padding: 15,
+        width: 285,
+        bg: 'white',
+        borderRadius: '5px',
+        boxShadow: '0px 0px 4px 0px rgba(0,0,0,0.15)',
+        color: 'black',
+      },
+      closeIcon: {
+        transform: 'scale(1.5)',
+      },
+      indicationImage: {
+        height: 20,
+        width: 20,
+      },
+      title: {
+        fontSize: 16,
+      },
+      description: {
+        fontSize: 14,
+      },
+    },
+  },
 
   tabs: {
     primary: {
