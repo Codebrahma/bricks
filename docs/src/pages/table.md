@@ -48,3 +48,17 @@ Primitive checkbox component styled as Switch.
 ```
 
 </Editor>
+
+
+
+### Props
+
+| Prop                     | Type                     | Description                                                                                                        |
+| ------------------------ | ------------------------ | ------------------------------------------------------------------------------------------------------------------ |
+| `dataSource`             | object                   | Source of the data applied to the table. .                                                                                        |
+| `colNames`               | object                   | Column names of the table.                                                                                      |
+| `bordered`               | boolean                  | Apply borders for the table.                          |
+| `stripped`               | boolean                  | Makes the table with zebra stripped pattern.                                            |
+| `hoverable`              | boolean                  | Apply hover effect on the table.                               |
+| `headerColor`            | string                   | Change the header colour of the table.|
+| `variant`                | string                   | Property to apply customize modal styles with theme.json. Click [here](/theming) to know more about theming modals |
