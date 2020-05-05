@@ -41,19 +41,21 @@ const Td = styled.td`
 `;
 
 const Th = styled.th`
-  ${({ theme, headerColor }) =>
+  ${({ theme, headerColor, sortable }) =>
     css({
       bg: headerColor.length > 0 ? headerColor : 'inherit',
+      cursor: sortable ? 'pointer' : 'default',
       color: 'inherit',
     })(theme)}
   ${({ theme, variant }) => applyVariation(theme, `${variant}.th`, 'table')}
 `;
 
 const ArrowIcon = styled(Box)`
-  ${({ theme }) =>
+  ${({ theme, ascendingOrder }) =>
     css({
       transition: 'all 0.3s ease-in-out',
       cursor: 'pointer',
+      transform: ascendingOrder === 'true' ? 'rotate(0)' : 'rotate(-180deg)',
     })(theme)}
   ${({ theme, variant }) =>
     applyVariation(theme, `${variant}.arrowIcon`, 'table')}

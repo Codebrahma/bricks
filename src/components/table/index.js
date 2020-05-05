@@ -1,5 +1,4 @@
 /* eslint-disable react/jsx-props-no-spreading */
-/* eslint-disable no-nested-ternary */
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
@@ -25,55 +24,53 @@ const Table = ({
   bordered,
   ...rest
 }) => {
-  const [obtaineddataSource, setobtaineddataSource] = useState(dataSource);
-  const [colSortIndex, setSortIndex] = useState([]);
+  const [obtainedDataSource, setObtainedDataSource] = useState(dataSource);
+  const [ascendingOrder, setAscendingOrder] = useState([]);
 
-  const sortDataAscending = (key, index) => {
-    const newobtaineddataSource = [...obtaineddataSource];
-    newobtaineddataSource.sort((a, b) => {
-      let keyA = a[key];
-      let keyB = b[key];
-      if (typeof a[key] === 'string') {
-        keyA = keyA.toLowerCase();
-        keyB = keyB.toLowerCase();
-      }
-      if (keyA < keyB) return -1;
-      if (keyA > keyB) return 1;
-      return 0;
-    });
-    setobtaineddataSource(newobtaineddataSource);
-    const newSortIndex = [...colSortIndex];
-    newSortIndex[index] = true;
-    setSortIndex(newSortIndex);
-  };
-  const sortDataDescending = (key, index) => {
-    const newobtaineddataSource = [...obtaineddataSource];
-    newobtaineddataSource.sort((a, b) => {
-      let keyA = a[key];
-      let keyB = b[key];
-      if (typeof a[key] === 'string') {
-        keyA = keyA.toLowerCase();
-        keyB = keyB.toLowerCase();
-      }
-      if (keyA > keyB) return -1;
-      if (keyA < keyB) return 1;
-      return 0;
-    });
-    setobtaineddataSource(newobtaineddataSource);
-    const newSortIndex = [...colSortIndex];
-    newSortIndex[index] = false;
-    setSortIndex(newSortIndex);
+  const sort = (key, index, order) => {
+    const newObtainedDataSource = [...obtainedDataSource];
+    if (order === 'ascending') {
+      newObtainedDataSource.sort((a, b) => {
+        const value1 = String(a[key]).toLowerCase();
+        const value2 = String(b[key]).toLowerCase();
+        if (value1 > value2) return -1;
+        if (value1 < value2) return 1;
+        return 0;
+      });
+    } else {
+      newObtainedDataSource.sort((a, b) => {
+        const value1 = String(a[key]).toLowerCase();
+        const value2 = String(b[key]).toLowerCase();
+        if (value1 < value2) return -1;
+        if (value1 > value2) return 1;
+        return 0;
+      });
+    }
+    setObtainedDataSource(newObtainedDataSource);
+    const newSortIndex = [...ascendingOrder];
+    newSortIndex[index] = !newSortIndex[index];
+    setAscendingOrder(newSortIndex);
   };
 
   useEffect(() => {
-    const newColSortIndex = colNames.map((colName) => {
+    const newAscendingOrder = colNames.map((colName) => {
       if (colName.sortable) {
         return true;
       }
       return null;
     });
-    setSortIndex(newColSortIndex);
+    setAscendingOrder(newAscendingOrder);
   }, []);
+
+  const tableHeaderClickHandler = (sortable, colSortOrder, key, index) => {
+    if (sortable) {
+      if (colSortOrder) {
+        sort(key, index, 'descending');
+      } else {
+        sort(key, index, 'ascending');
+      }
+    }
+  };
 
   return (
     <TableContainer {...rest} variant={variant}>
@@ -85,53 +82,53 @@ const Table = ({
                 key={colName.key}
                 variant={variant}
                 headerColor={headerColor}
-                style={{ cursor: colName.sortable ? 'pointer' : 'default' }}
-                onClick={
-                  colName.sortable
-                    ? colSortIndex[index]
-                      ? () => sortDataDescending(colName.key, index)
-                      : () => sortDataAscending(colName.key, index)
-                    : null
+                sortable={colName.sortable}
+                onClick={() =>
+                  tableHeaderClickHandler(
+                    colName.sortable,
+                    ascendingOrder[index],
+                    colName.key,
+                    index
+                  )
                 }
               >
                 {colName.sortable ? (
                   <HeaderContainer>
                     <HeaderText variant={variant}>{colName.title}</HeaderText>
-
                     <ArrowIcon
-                      style={{
-                        transform: colSortIndex[index]
-                          ? 'rotate(0)'
-                          : 'rotate(-180deg)',
-                      }}
+                      ascendingOrder={
+                        ascendingOrder[index]
+                          ? ascendingOrder[index].toString()
+                          : null
+                      }
                       variant={variant}
                     >
                       {sortIcon}
                     </ArrowIcon>
                   </HeaderContainer>
                 ) : (
-                  colName.title
+                  <HeaderText variant={variant}>{colName.title}</HeaderText>
                 )}
               </Th>
             ))}
           </Tr>
         </thead>
         <tbody>
-          {obtaineddataSource.map((data) => {
+          {obtainedDataSource.map((data, index) => {
             return (
               <Tr
-                key={Math.random()}
+                key={index}
                 stripped={stripped}
                 hoverable={hoverable}
                 bordered={bordered}
                 variant={variant}
               >
-                {colNames.map((colName) => {
+                {colNames.map((colName, columnIndex) => {
                   if (colName.render !== undefined) {
                     if (colName.key in data) {
                       return (
                         <Td
-                          key={data[colName.key] + Math.random()}
+                          key={data[colName.key] + columnIndex}
                           variant={variant}
                         >
                           {colName.render(data[colName.key])}
@@ -144,7 +141,7 @@ const Table = ({
                   if (colName.key in data) {
                     return (
                       <Td
-                        key={data[colName.key] + Math.random()}
+                        key={data[colName.key] + columnIndex}
                         variant={variant}
                       >
                         {data[colName.key]}
