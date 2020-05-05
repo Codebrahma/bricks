@@ -27,31 +27,20 @@ const Table = ({
   const [obtainedDataSource, setObtainedDataSource] = useState(dataSource);
   const [ascendingOrder, setAscendingOrder] = useState([]);
 
-  const sort = (key, index, order) => {
+  const sort = (key, index, desc = false) => {
     const newObtainedDataSource = [...obtainedDataSource];
-    if (order === 'ascending') {
-      newObtainedDataSource.sort((a, b) => {
-        const value1 = String(a[key]).toLowerCase();
-        const value2 = String(b[key]).toLowerCase();
-        if (value1 > value2) return -1;
-        if (value1 < value2) return 1;
-        return 0;
-      });
-    } else {
-      newObtainedDataSource.sort((a, b) => {
-        const value1 = String(a[key]).toLowerCase();
-        const value2 = String(b[key]).toLowerCase();
-        if (value1 < value2) return -1;
-        if (value1 > value2) return 1;
-        return 0;
-      });
-    }
+    newObtainedDataSource.sort((a, b) => {
+      const value1 = String(a[key]).toLowerCase();
+      const value2 = String(b[key]).toLowerCase();
+      if (value1 > value2) return desc ? 1 : -1;
+      if (value1 < value2) return desc ? -1 : 1;
+      return 0;
+    });
     setObtainedDataSource(newObtainedDataSource);
     const newSortIndex = [...ascendingOrder];
     newSortIndex[index] = !newSortIndex[index];
     setAscendingOrder(newSortIndex);
   };
-
   useEffect(() => {
     const newAscendingOrder = colNames.map((colName) => {
       if (colName.sortable) {
@@ -65,9 +54,9 @@ const Table = ({
   const tableHeaderClickHandler = (sortable, colSortOrder, key, index) => {
     if (sortable) {
       if (colSortOrder) {
-        sort(key, index, 'descending');
+        sort(key, index, true);
       } else {
-        sort(key, index, 'ascending');
+        sort(key, index);
       }
     }
   };
