@@ -179,6 +179,26 @@ export default {
       },
     },
   },
+  table: {
+    primary: {
+      container: {
+        width: 750,
+        bg: 'white',
+      },
+      td: {
+        fontSize: 14,
+        p: 10,
+      },
+      th: {
+        fontSize: 16,
+        p: 10,
+        fontWeight: 'bold',
+      },
+      headerText: {
+        mr: 10,
+      },
+    },
+  },
 
   tabs: {
     primary: {
