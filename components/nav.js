@@ -63,10 +63,10 @@ export const Nav = ({logo, links = [], GatsbyLink = EmptyButton})=>{
       ))}
       </Flex>
       <Box p='1' css={ buttonCss } display={ [links.length?'block':'none', 'none'] }>
-        {isOpen?
-        <EmptyButton onClick={ ()=>setOpen(false) }><Close/></EmptyButton>
-        :
-        <EmptyButton onClick={ ()=>setOpen(true) }><Ham/></EmptyButton>
+        {
+          isOpen
+            ? <EmptyButton name='close' onClick={() => setOpen(false)}><Close/></EmptyButton>
+            : <EmptyButton name='open' onClick={() => setOpen(true)}><Ham/></EmptyButton>
         }
       </Box>
     </Flex>
